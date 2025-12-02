@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'gestion_dispositivos',
     'control_acceso',
     'usuarios',
+    'api',
+    'rest-framework',
 ]
 
 MIDDLEWARE = [
