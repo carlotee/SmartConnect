@@ -28,3 +28,4 @@ class Evento(models.Model):
 
     def __str__(self):
         return f"{self.tipo} - {self.fecha_hora}"
+    #

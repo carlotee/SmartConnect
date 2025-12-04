@@ -42,4 +42,4 @@ class Sensor(models.Model):
     fecha_creacion = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return f"{self.mac_address} ({self.estado})"
+        return f"{self.mac_address} ({self.estado})"#   
