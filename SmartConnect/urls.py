@@ -16,26 +16,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from rest_framework.routers import DefaultRouter
-from usuarios.views import api_info, UsuarioViewSet, DepartamentoViewSet
-from gestion_dispositivos.views import SensorViewSet, BarreraViewSet
-from control_acceso.views import EventoViewSet
-
-from rest_framework_simplejwt.views import (
-    TokenObtainPairView,  
-    TokenRefreshView,     
-)
-router = DefaultRouter()
-router.register(r'usuarios', UsuarioViewSet)
-router.register(r'departamentos', DepartamentoViewSet)
-router.register(r'sensores', SensorViewSet)
-router.register(r'barreras', BarreraViewSet)
-router.register(r'eventos', EventoViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
-    path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
-    path('api/info/', api_info, name='api_info'),
-    path('api/v1/', include(router.urls)),
+    path('api/v1/', include('api.urls')),
 ]
