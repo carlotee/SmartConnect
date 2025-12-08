@@ -33,7 +33,7 @@ class Sensor(models.Model):
     #aca sera el codigo unicoooo siosi
     mac_address = models.CharField(max_length=50, unique=True, verbose_name="Código UID/MAC")
     
-    tipo = models.CharField(max_length=50, blank=True, null=True) # Ej: Tarjeta, Llavero
+    tipo = models.CharField(max_length=50, blank=True, null=True) 
 
     departamento = models.ForeignKey(Departamento, on_delete=models.SET_NULL, null=True, blank=True)
     
