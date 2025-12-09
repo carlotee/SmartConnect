@@ -4,6 +4,7 @@ from .serializers import SensorSerializer, BarreraSerializer
 from usuarios.permissions import IsAdminOrReadOnly, CustomIsAuthenticated 
 from rest_framework.response import Response
 from rest_framework import status
+from rest_framework.permissions import AllowAny
 
 class SensorViewSet(viewsets.ModelViewSet):
     """
@@ -12,7 +13,7 @@ class SensorViewSet(viewsets.ModelViewSet):
     queryset = Sensor.objects.all()
     serializer_class = SensorSerializer
     
-    permission_classes = [CustomIsAuthenticated, IsAdminOrReadOnly]
+    permission_classes = [AllowAny]
     
     def retrieve(self, request, *args, **kwargs):
         try:
