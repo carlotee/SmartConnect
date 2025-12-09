@@ -15,6 +15,8 @@ router.register(r'sensores', SensorViewSet)
 router.register(r'barreras', BarreraViewSet)
 router.register(r'eventos', EventoViewSet)
 
+urlpatterns = [
 path('/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
 path('/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
 path('/info/', api_info, name='api_info'),
+]
