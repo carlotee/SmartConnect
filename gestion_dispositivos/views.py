@@ -26,7 +26,7 @@ class BarreraViewSet(viewsets.ModelViewSet):
     queryset = Barrera.objects.all()
     serializer_class = BarreraSerializer
     
-    permission_classes = [CustomIsAuthenticated, IsAdminOrReadOnly]
+    permission_classes = [AllowAny]
     
     def retrieve(self, request, *args, **kwargs):
         try:

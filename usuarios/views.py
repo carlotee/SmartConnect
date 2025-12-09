@@ -22,7 +22,7 @@ def api_info(request):
 class UsuarioViewSet(viewsets.ModelViewSet):
     queryset = UsuarioPersonalizado.objects.all()
     serializer_class = UsuarioSerializer
-    permission_classes = [CustomIsAuthenticated, IsAdminOrReadOnly]
+    permission_classes = [AllowAny]
     
     def create(self, request, *args, **kwargs):
         serializer = self.get_serializer(data=request.data)
@@ -44,7 +44,7 @@ class DepartamentoViewSet(viewsets.ModelViewSet):
     queryset = Departamento.objects.all()
     serializer_class = DepartamentoSerializer
   
-    permission_classes = [CustomIsAuthenticated, IsAdminOrReadOnly]
+    permission_classes = [AllowAny]
     
     def retrieve(self, request, *args, **kwargs):
         try:
