@@ -51,3 +51,4 @@ class DepartamentoViewSet(viewsets.ModelViewSet):
             return super().retrieve(request, *args, **kwargs)
         except Exception:
             return Response({"detail": "Departamento no encontrado."}, status=status.HTTP_404_NOT_FOUND)
+        
