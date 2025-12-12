@@ -19,7 +19,7 @@ class SensorViewSet(viewsets.ModelViewSet):
         try:
             return super().retrieve(request, *args, **kwargs)
         except Exception:
-            return Response({"detail": "Sensor no encontrado."}, status=status.HTTP_404_NOT_FOUND)
+            return Response({"Sensor no encontrado."}, status=status.HTTP_404_NOT_FOUND)
 
 
 class BarreraViewSet(viewsets.ModelViewSet):
@@ -32,4 +32,4 @@ class BarreraViewSet(viewsets.ModelViewSet):
         try:
             return super().retrieve(request, *args, **kwargs)
         except Exception:
-            return Response({"detail": "Barrera no encontrada."}, status=status.HTTP_404_NOT_FOUND)
+            return Response({"Barrera no encontrada."}, status=status.HTTP_404_NOT_FOUND)
