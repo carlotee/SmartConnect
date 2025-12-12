@@ -28,7 +28,7 @@ class UsuarioViewSet(viewsets.ModelViewSet):
         try:
             return super().retrieve(request, *args, **kwargs)
         except Exception:
-            return Response({"detail": "Usuario no encontrado."}, status=status.HTTP_404_NOT_FOUND)
+            return Response({"Usuario no encontrado."}, status=status.HTTP_404_NOT_FOUND)
 
 
 class DepartamentoViewSet(viewsets.ModelViewSet):
@@ -40,5 +40,5 @@ class DepartamentoViewSet(viewsets.ModelViewSet):
         try:
             return super().retrieve(request, *args, **kwargs)
         except Exception:
-            return Response({"detail": "Departamento no encontrado."},
+            return Response({"Departamento no encontrado."},
                             status=status.HTTP_404_NOT_FOUND)
