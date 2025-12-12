@@ -4,9 +4,6 @@ from rest_framework import status
 from rest_framework.exceptions import AuthenticationFailed, NotAuthenticated
 
 def custom_exception_handler(exc, context):
-    """
-    Manejador de excepciones personalizado para DRF.
-    """
     response = exception_handler(exc, context)
 
     if response is not None:
