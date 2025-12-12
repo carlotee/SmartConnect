@@ -16,4 +16,4 @@ class EventoViewSet(viewsets.ModelViewSet):
         try:
             return super().retrieve(request, *args, **kwargs)
         except Exception:
-            return Response({"detail": "Evento no encontrado."}, status=status.HTTP_404_NOT_FOUND)
+            return Response({"Evento no encontrado."}, status=status.HTTP_404_NOT_FOUND)
