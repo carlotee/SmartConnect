@@ -5,6 +5,7 @@ from usuarios.permissions import IsAdminOrReadOnly, CustomIsAuthenticated
 from rest_framework.response import Response
 from rest_framework import status
 from rest_framework.permissions import AllowAny
+from rest_framework.permissions import IsAuthenticated
 
 class SensorViewSet(viewsets.ModelViewSet):
     """
@@ -13,7 +14,7 @@ class SensorViewSet(viewsets.ModelViewSet):
     queryset = Sensor.objects.all()
     serializer_class = SensorSerializer
     
-    permission_classes = [AllowAny]
+    permission_classes = [IsAuthenticated]  
     
     def retrieve(self, request, *args, **kwargs):
         try:
@@ -26,7 +27,7 @@ class BarreraViewSet(viewsets.ModelViewSet):
     queryset = Barrera.objects.all()
     serializer_class = BarreraSerializer
     
-    permission_classes = [AllowAny]
+    permission_classes = [IsAuthenticated]  
     
     def retrieve(self, request, *args, **kwargs):
         try:
