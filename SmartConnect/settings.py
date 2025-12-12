@@ -53,7 +53,7 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.IsAuthenticated',
     ),
     'DEFAULT_AUTHENTICATION_CLASSES': (
-        'path.to.CustomJWTAuthentication',
+    'api.authentication.CustomJWTAuthentication',
     ),
     'EXCEPTION_HANDLER': 'utils.exceptions.custom_exception_handler'
 }
