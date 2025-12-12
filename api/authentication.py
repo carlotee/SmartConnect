@@ -3,7 +3,7 @@ from rest_framework.exceptions import AuthenticationFailed
 
 class CustomJWTAuthentication(JWTAuthentication):
     def authenticate(self, request):
-        user_auth_tuple = super().authenticate(request)
-        if user_auth_tuple is None:
-            raise AuthenticationFailed({'error': 'No autorizado'})
-        return user_auth_tuple
+        try:
+            return super().authenticate(request)
+        except AuthenticationFailed:
+            raise AuthenticationFailed('Sin Autenticación')
