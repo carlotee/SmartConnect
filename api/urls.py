@@ -1,11 +1,11 @@
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
-from usuarios.views import api_info, UsuarioViewSet, DepartamentoViewSet
+from usuarios.views import UsuarioViewSet, DepartamentoViewSet
 from gestion_dispositivos.views import SensorViewSet, BarreraViewSet
 from control_acceso.views import EventoViewSet
 from rest_framework_simplejwt.views import TokenRefreshView
-
 from api.views import LoginView
+from api.views import api_info
 
 router = DefaultRouter()
 router.register(r'usuarios', UsuarioViewSet)
