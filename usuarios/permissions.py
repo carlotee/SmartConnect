@@ -1,15 +1,12 @@
-from rest_framework import permissions
-from rest_framework.permissions import BasePermission, IsAuthenticated as DRFIsAuthenticated
+from rest_framework.permissions import BasePermission, SAFE_METHODS
 
-class CustomIsAuthenticated(DRFIsAuthenticated):
-    message = 'Sin Autenticación'
+class IsAdminOrReadOnly(BasePermission):
 
-class IsAdminOrReadOnly(permissions.BasePermission):
-    
-    message = 'Sin Permisos'
-    
     def has_permission(self, request, view):
-        if request.method in permissions.SAFE_METHODS:
+        if not request.user.is_authenticated:
+            return False
+
+        if request.method in SAFE_METHODS:
             return True
-        
-        return request.user and request.user.is_authenticated and request.user.rol == 'admin'
+
+        return request.user.rol == "admin"

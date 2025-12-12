@@ -5,11 +5,12 @@ from .serializers import EventoSerializer
 from .models import Evento 
 from usuarios.permissions import IsAdminOrReadOnly
 from rest_framework.permissions import AllowAny
+from rest_framework.permissions import IsAuthenticated
 
 class EventoViewSet(viewsets.ModelViewSet):
     queryset = Evento.objects.all().order_by('-fecha_hora')
     serializer_class = EventoSerializer
-    permission_classes = [AllowAny]
+    permission_classes = [IsAuthenticated, IsAdminOrReadOnly]
     http_method_names = ['get', 'post', 'head', 'options']
     
     def retrieve(self, request, *args, **kwargs):

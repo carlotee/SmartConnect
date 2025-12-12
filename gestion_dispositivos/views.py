@@ -1,20 +1,17 @@
 from rest_framework import viewsets
 from .models import Sensor, Barrera, Departamento 
 from .serializers import SensorSerializer, BarreraSerializer 
-from usuarios.permissions import IsAdminOrReadOnly, CustomIsAuthenticated 
+from usuarios.permissions import IsAdminOrReadOnly
 from rest_framework.response import Response
 from rest_framework import status
 from rest_framework.permissions import AllowAny
 from rest_framework.permissions import IsAuthenticated
 
 class SensorViewSet(viewsets.ModelViewSet):
-    """
-    API CRUD para la gestión de Sensores. Aplica validaciones de MAC única y estado.
-    """
     queryset = Sensor.objects.all()
     serializer_class = SensorSerializer
     
-    permission_classes = [IsAuthenticated]  
+    permission_classes = [IsAuthenticated, IsAdminOrReadOnly]  
     
     def retrieve(self, request, *args, **kwargs):
         try:
@@ -27,7 +24,7 @@ class BarreraViewSet(viewsets.ModelViewSet):
     queryset = Barrera.objects.all()
     serializer_class = BarreraSerializer
     
-    permission_classes = [IsAuthenticated]  
+    permission_classes = [IsAuthenticated, IsAdminOrReadOnly]  
     
     def retrieve(self, request, *args, **kwargs):
         try:
