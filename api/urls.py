@@ -15,8 +15,9 @@ router.register(r'barreras', BarreraViewSet)
 router.register(r'eventos', EventoViewSet)
 
 urlpatterns = [
-    path('token/', LoginView.as_view(), name='token_obtain_pair'),
-    path('token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
+    path('login/', LoginView.as_view(), name='login_obtain_login'),
+    path('login/refresh/', TokenRefreshView.as_view(), name='login_refresh_login'),
+
     path('info/', api_info, name='api_info'),
     path('', include(router.urls)),
 ]
