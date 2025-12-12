@@ -1,9 +1,9 @@
-from rest_framework_simplejwt.authentication import JWTAuthentication
-from rest_framework.exceptions import AuthenticationFailed
+from rest_framework.views import exception_handler
 
-class CustomJWTAuthentication(JWTAuthentication):
-    def authenticate(self, request):
-        try:
-            return super().authenticate(request)
-        except AuthenticationFailed:
-            raise AuthenticationFailed(detail={'Error': 'No autorizado'}) 
+def custom_exception_handler(exc, context):
+    response = exception_handler(exc, context)
+
+    if response is not None and response.status_code == 401:
+        response.data = {'Error': response.data.get('detail', 'No autorizado')}
+
+    return response

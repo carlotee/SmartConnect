@@ -6,4 +6,4 @@ class CustomJWTAuthentication(JWTAuthentication):
         try:
             return super().authenticate(request)
         except AuthenticationFailed:
-            raise AuthenticationFailed(detail={'Error': 'No autorizado'})
+            raise AuthenticationFailed(detail="No autorizado")
