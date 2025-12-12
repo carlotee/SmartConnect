@@ -51,13 +51,14 @@ INSTALLED_APPS = [
 
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': (
-        'rest_framework.permissions.IsAuthenticated',  # Asegúrate de usar IsAuthenticated aquí
+        'rest_framework.permissions.IsAuthenticated',
     ),
     'DEFAULT_AUTHENTICATION_CLASSES': (
-        'api.authentication.CustomJWTAuthentication',  # Tu autenticación personalizada con JWT
+        'api.authentication.CustomJWTAuthentication',
     ),
-    'EXCEPTION_HANDLER': 'utils.exceptions.custom_exception_handler',
+    'EXCEPTION_HANDLER': 'utils.exceptions.custom_exception_handler', 
 }
+
 
 SIMPLE_JWT = {
     'ACCESS_TOKEN_LIFETIME': timedelta(minutes=60),  
