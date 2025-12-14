@@ -4,11 +4,10 @@ class IsAdminOrReadOnly(BasePermission):
     message = "Sin Permisos"
 
     def has_permission(self, request, view):
-
         if request.method in SAFE_METHODS:
-            return request.user and request.user.is_authenticated
+            return request.user.is_authenticated
 
-        if not request.user or not request.user.is_authenticated:
+        if not request.user.is_authenticated:
             return False
 
         return request.user.rol == 'admin'
