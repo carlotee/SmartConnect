@@ -1,4 +1,5 @@
 from django.db import models
+from usuarios.models import UsuarioPersonalizado
 
 class Departamento(models.Model):
 
@@ -16,7 +17,7 @@ class Barrera(models.Model):
     ]
 
     departamento = models.OneToOneField(Departamento, on_delete=models.CASCADE, related_name='barrera')
-    estado = models.CharField(max_length=10, choices=ESTADOS, default='cerrada') #
+    estado = models.CharField(max_length=10, choices=ESTADOS, default='cerrada') 
     
     def __str__(self):
         return f"Barrera de {self.departamento.nombre} - {self.estado}"
@@ -30,10 +31,11 @@ class Sensor(models.Model):
         ('perdido', 'Perdido'),
     ] #
 
-    #aca sera el codigo unicoooo siosi
     mac_address = models.CharField(max_length=50, unique=True, verbose_name="Código UID/MAC")
     
     tipo = models.CharField(max_length=50, blank=True, null=True) 
+
+    usuario = models.ForeignKey(UsuarioPersonalizado, on_delete=models.SET_NULL, null=True, blank=True)
 
     departamento = models.ForeignKey(Departamento, on_delete=models.SET_NULL, null=True, blank=True)
     
