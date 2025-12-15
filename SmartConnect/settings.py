@@ -56,7 +56,7 @@ REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'api.authentication.CustomJWTAuthentication',
     ),
-    'EXCEPTION_HANDLER': 'utils.exceptions.custom_exception_handler',  # ruta exacta
+    'EXCEPTION_HANDLER': 'utils.exceptions.custom_exception_handler', 
 }
 
 
